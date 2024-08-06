@@ -1,17 +1,8 @@
 import React from 'react';
-import {
-  TableCaption,
-  Table,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from './ui/table';
 import { DepositPositionsTable } from './DepositPositionsTable';
 import { BorrowPositionTable } from './BorrowPositionsTable';
 
-const mockDeposits: {
+const mockDepositsPositions: {
   APY: number;
   vaultName: string;
   totalSupply: number;
@@ -34,7 +25,7 @@ const mockDeposits: {
   },
 ];
 
-const mockBorrows: {
+const mockBorrowsPositions: {
   collateral: string;
   loan: string;
   borrowAPY: string;
@@ -78,7 +69,7 @@ export const PositionTables = () => {
                   Claim rewards
                 </button>
               </div>
-              <DepositPositionsTable data={mockDeposits} />
+              <DepositPositionsTable positions={mockDepositsPositions} />
             </div>
           </div>
           <div className='flex h-fit w-1/2 flex-grow flex-col space-y-4 overflow-hidden pb-12'>
@@ -89,7 +80,7 @@ export const PositionTables = () => {
                   Fill all positions
                 </button>
               </div>
-              <BorrowPositionTable data={mockBorrows} />
+              <BorrowPositionTable positions={mockBorrowsPositions} />
             </div>
           </div>
         </div>

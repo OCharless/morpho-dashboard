@@ -9,9 +9,9 @@ import {
 } from './ui/table';
 
 export const DepositPositionsTable = ({
-  data,
+  positions,
 }: {
-  data: {
+  positions: {
     APY: number;
     vaultName: string;
     totalSupply: number;
@@ -31,15 +31,15 @@ export const DepositPositionsTable = ({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map(invoice => (
-          <TableRow key={invoice.APY} className='border-[#fafafa1a]'>
+        {positions.map(position => (
+          <TableRow key={position.APY} className='border-[#fafafa1a]'>
             <TableCell className='font-medium'>
-              ${((invoice.totalSupply * invoice.APY) / 10000).toFixed(2)}
+              ${((position.totalSupply * position.APY) / 10000).toFixed(2)}
             </TableCell>
-            <TableCell className='font-medium'>{invoice.vaultName}</TableCell>
-            <TableCell>{invoice.APY}</TableCell>
-            <TableCell className='text-right'>{invoice.curator}</TableCell>
-            <TableCell className='text-right'>{invoice.collateral}</TableCell>
+            <TableCell className='font-medium'>{position.vaultName}</TableCell>
+            <TableCell>{position.APY}</TableCell>
+            <TableCell className='text-right'>{position.curator}</TableCell>
+            <TableCell className='text-right'>{position.collateral}</TableCell>
           </TableRow>
         ))}
       </TableBody>

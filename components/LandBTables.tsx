@@ -178,10 +178,10 @@ export const LandBTables = () => {
       <h2 className='text-2xl text-[#2470FF]'>Markets</h2>
       <div className='flex w-full flex-row space-x-4'>
         <div className='flex h-fit w-1/2 flex-grow flex-col space-y-4 overflow-hidden pb-12'>
-          <DepositTable data={mockDeposits} />
+          <DepositTable deposits={mockDeposits} />
         </div>
         <div className='flex h-fit w-1/2 flex-grow flex-col space-y-4 overflow-hidden pb-12'>
-          <BorrowTable data={mockBorrows} />
+          <BorrowTable borrows={mockBorrows} />
         </div>
       </div>
     </div>

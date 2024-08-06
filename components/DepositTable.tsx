@@ -9,9 +9,9 @@ import {
 } from './ui/table';
 
 export const DepositTable = ({
-  data,
+  deposits,
 }: {
-  data: {
+  deposits: {
     APY: number;
     vaultName: string;
     totalSupply: number;
@@ -31,13 +31,13 @@ export const DepositTable = ({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map(invoice => (
-          <TableRow key={invoice.APY} className='border-[#fafafa1a]'>
-            <TableCell className='font-medium'>{invoice.vaultName}</TableCell>
-            <TableCell className='font-medium'>{invoice.totalSupply}</TableCell>
-            <TableCell>{invoice.APY}</TableCell>
-            <TableCell className='text-right'>{invoice.curator}</TableCell>
-            <TableCell className='text-right'>{invoice.collateral}</TableCell>
+        {deposits.map(deposit => (
+          <TableRow key={deposit.APY} className='border-[#fafafa1a]'>
+            <TableCell className='font-medium'>{deposit.vaultName}</TableCell>
+            <TableCell className='font-medium'>{deposit.totalSupply}</TableCell>
+            <TableCell>{deposit.APY}</TableCell>
+            <TableCell className='text-right'>{deposit.curator}</TableCell>
+            <TableCell className='text-right'>{deposit.collateral}</TableCell>
           </TableRow>
         ))}
       </TableBody>

@@ -9,9 +9,9 @@ import {
 } from './ui/table';
 
 export const BorrowTable = ({
-  data,
+  borrows,
 }: {
-  data: {
+  borrows: {
     collateral: string;
     loan: string;
     liquidationLTV: number;
@@ -33,14 +33,14 @@ export const BorrowTable = ({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map(invoice => (
-          <TableRow key={invoice.collateral} className='border-[#fafafa1a]'>
-            <TableCell>{invoice.collateral}</TableCell>
-            <TableCell>{invoice.loan}</TableCell>
-            <TableCell>{invoice.liquidationLTV}</TableCell>
-            <TableCell>{invoice.AvailableLiquidity}</TableCell>
-            <TableCell>{invoice.borrowAPY}</TableCell>
-            <TableCell>{invoice.vaultListing}</TableCell>
+        {borrows.map(borrow => (
+          <TableRow key={borrow.collateral} className='border-[#fafafa1a]'>
+            <TableCell>{borrow.collateral}</TableCell>
+            <TableCell>{borrow.loan}</TableCell>
+            <TableCell>{borrow.liquidationLTV}</TableCell>
+            <TableCell>{borrow.AvailableLiquidity}</TableCell>
+            <TableCell>{borrow.borrowAPY}</TableCell>
+            <TableCell>{borrow.vaultListing}</TableCell>
           </TableRow>
         ))}
       </TableBody>

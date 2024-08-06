@@ -8,7 +8,6 @@ import { ChevronDownIcon } from 'lucide-react';
 export const Header = () => {
   const { address } = useAccount();
   const { disconnect } = useDisconnect();
-  const { connectors, connect } = useConnect();
   return (
     <div className='fixed z-10 flex h-[48.8px] w-screen items-center justify-end border-b-[1px] border-[#fafafa1a] bg-[#15181a]'>
       <div className='mr-9 flex h-fit w-fit space-x-2'>

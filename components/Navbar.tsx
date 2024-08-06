@@ -1,13 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import {
-  ChartAreaIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  LayoutDashboardIcon,
-  SunIcon,
-  TableIcon,
-} from 'lucide-react';
+import { LayoutDashboardIcon, SunIcon } from 'lucide-react';
 import React from 'react';
 
 export interface NavbarProps {

@@ -9,9 +9,9 @@ import {
 } from './ui/table';
 
 export const BorrowPositionTable = ({
-  data,
+  positions,
 }: {
-  data: {
+  positions: {
     collateral: string;
     loan: string;
     borrowAPY: string;
@@ -31,18 +31,18 @@ export const BorrowPositionTable = ({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map(invoice => (
-          <TableRow key={invoice.collateral} className='border-[#fafafa1a]'>
-            <TableCell>{invoice.collateral}</TableCell>
-            <TableCell>{invoice.loan}</TableCell>
-            <TableCell>{invoice.borrowAPY}</TableCell>
+        {positions.map(position => (
+          <TableRow key={position.collateral} className='border-[#fafafa1a]'>
+            <TableCell>{position.collateral}</TableCell>
+            <TableCell>{position.loan}</TableCell>
+            <TableCell>{position.borrowAPY}</TableCell>
             <TableCell
-              className={`text-right ${invoice.LTV / invoice.liquidationLTV > 0.9 ? 'text-red-500' : 'text-green-500'}`}
+              className={`text-right ${position.LTV / position.liquidationLTV > 0.9 ? 'text-red-500' : 'text-green-500'}`}
             >
-              {invoice.LTV}
+              {position.LTV}
             </TableCell>
             <TableCell className='text-right'>
-              {invoice.liquidationLTV}
+              {position.liquidationLTV}
             </TableCell>
           </TableRow>
         ))}
