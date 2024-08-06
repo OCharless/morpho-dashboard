@@ -10,12 +10,16 @@ import {
 } from "lucide-react";
 import React from "react";
 
-export const Navbar = () => {
-    const [toggledNavBar, setToggledNavBar] = React.useState(true);
+export interface NavbarProps {
+    toggledNavBar: boolean;
+    setToggledNavBar: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Navbar = ({ setToggledNavBar, toggledNavBar }: NavbarProps) => {
     if (toggledNavBar)
         return (
             <div
-                className={`h-screen flex bg-[#202426] px-[10px] justify-between  flex-col w-[250px]`}
+                className={`h-screen fixed z-10 flex bg-[#202426] px-[10px] justify-between  flex-col w-[250px]`}
             >
                 <div className="space-y-1 flex-nowrap text-[#fffffff2]">
                     <img src="butterfly-dark.svg" alt="" className="px-3 py-4" />
@@ -36,7 +40,7 @@ export const Navbar = () => {
                         <p>Ecosystem</p>
                     </button>
                     <button className="flex space-x-2 hover:bg-[#fafafa1a] items-center text-sm w-full py-2 rounded-md px-3 bg-[#fafafa1a]">
-                        <LayoutDashboardIcon className="w-4" />
+                        <LayoutDashboardIcon className="w-4 text-blue-600" />
                         <p>Dashboard</p>
                     </button>
                 </div>
@@ -87,27 +91,29 @@ export const Navbar = () => {
     if (!toggledNavBar)
         return (
             <div
-                className={`h-screen flex bg-[#202426] px-[5px] justify-between  flex-col w-[52px]`}
+                className={`h-screen fixed z-10 flex bg-[#202426] px-[5px] justify-between  flex-col w-[52px]`}
             >
                 <div className="space-y-2 flex-nowrap flex flex-col items-center">
                     <img src="butterfly-dark.svg" alt="" className="px-1 py-5" />
-                    <button className="flex space-x-2 items-center text-[#fffffff2] text-sm w-full py-1 rounded-md px-3">
+                    <button className="flex space-x-2 items-center text-sm w-full py-1 rounded-md px-3">
                         <img src="earn-icon.svg" alt="" className="w-4" />
                     </button>
-                    <button className="flex space-x-2 items-center text-[#fffffff2] text-sm w-full py-1 rounded-md px-3">
+                    <button className="flex space-x-2 items-center text-sm w-full py-1 rounded-md px-3">
                         <img src="borrow-icon.svg" alt="" className="w-4" />
                     </button>
-                    <button className="flex space-x-2 items-center text-[#fffffff2] text-sm w-full py-1 rounded-md px-3">
+                    <button className="flex space-x-2 items-center text-sm w-full py-1 rounded-md px-3">
                         <img src="migrate-icon.svg" alt="" className="w-4" />
                     </button>
-                    <button className="flex space-x-2 items-center text-[#fffffff2] text-sm w-full py-1 rounded-md px-3">
+                    <button className="flex space-x-2 items-center text-sm w-full py-1 rounded-md px-3">
                         <img src="ecosystem-icon.svg" alt="" className="w-4" />
                     </button>
-                    <button className="flex space-x-2 items-center text-[#fffffff2] text-sm w-full py-1 rounded-md px-3 bg-[#fafafa1a]">
-                        <LayoutDashboardIcon className="w-4" />
+                    <button className="flex space-x-2 items-center text-sm w-full py-1 rounded-md px-3 bg-[#fafafa1a]">
+                        <LayoutDashboardIcon className="w-4 text-blue-600" />
                     </button>
                 </div>
-                <div className="">
+                <div className="flex flex-col items-center">
+                    <SunIcon className="w-4" />
+
                     <button
                         onClick={() => setToggledNavBar(!toggledNavBar)}
                         className="text-white p-2 rounded-md w-full"

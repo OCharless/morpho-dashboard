@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Connector, useConnect } from "wagmi";
+import { Connector, useAccount, useConnect } from "wagmi";
 
 export function WalletOptions() {
     const { connectors, connect } = useConnect();
+    const { address } = useAccount();
 
     return connectors.map((connector) => (
         <WalletOption
@@ -24,7 +25,7 @@ function WalletOption({ connector, onClick }: { connector: Connector; onClick: (
     }, [connector]);
 
     return (
-        <button disabled={!ready} onClick={onClick}>
+        <button disabled={!ready} onClick={onClick} className="rounded-sm p-2 bg-blue-600">
             {connector.name}
         </button>
     );
