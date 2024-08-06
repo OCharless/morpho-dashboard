@@ -1,32 +1,42 @@
-import * as React from "react";
-import { Connector, useAccount, useConnect } from "wagmi";
+import * as React from 'react';
+import { Connector, useAccount, useConnect } from 'wagmi';
 
 export function WalletOptions() {
-    const { connectors, connect } = useConnect();
-    const { address } = useAccount();
+  const { connectors, connect } = useConnect();
+  const { address } = useAccount();
 
-    return connectors.map((connector) => (
-        <WalletOption
-            key={connector.uid}
-            connector={connector}
-            onClick={() => connect({ connector })}
-        />
-    ));
+  return connectors.map(connector => (
+    <WalletOption
+      key={connector.uid}
+      connector={connector}
+      onClick={() => connect({ connector })}
+    />
+  ));
 }
 
-function WalletOption({ connector, onClick }: { connector: Connector; onClick: () => void }) {
-    const [ready, setReady] = React.useState(false);
+function WalletOption({
+  connector,
+  onClick,
+}: {
+  connector: Connector;
+  onClick: () => void;
+}) {
+  const [ready, setReady] = React.useState(false);
 
-    React.useEffect(() => {
-        (async () => {
-            const provider = await connector.getProvider();
-            setReady(!!provider);
-        })();
-    }, [connector]);
+  React.useEffect(() => {
+    (async () => {
+      const provider = await connector.getProvider();
+      setReady(!!provider);
+    })();
+  }, [connector]);
 
-    return (
-        <button disabled={!ready} onClick={onClick} className="rounded-sm p-2 bg-blue-600">
-            {connector.name}
-        </button>
-    );
+  return (
+    <button
+      disabled={!ready}
+      onClick={onClick}
+      className='rounded-sm bg-blue-600 p-2'
+    >
+      {connector.name}
+    </button>
+  );
 }

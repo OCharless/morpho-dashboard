@@ -1,0 +1,9 @@
+<svg viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg" icon="Rate"
+    color="var(--colors-icon-brand)">
+    <path d="M8.33398 13.3334V6.66675" stroke="#ffffff80" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    <path d="M12.334 13.3334V2.66675" stroke="#ffffff80" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    <path d="M4.33398 13.3334V10.6667" stroke="#ffffff80" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round"></path>
+</svg>
